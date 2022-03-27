@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             x:Class="XamarinCommunityToolkit.MainPage">
+
+    <StackLayout Spacing="0">
+        <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
+            <Label Text="Xamarin Community Toolkit Tutorial Series!" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
+        </Frame>
+
+        <Label Text="Avatar View"
+               FontSize="16"
+               Padding="10"
+               FontAttributes="Bold"/>
+
+        <xct:AvatarView Text="M" Source="https://www.c-sharpcorner.com/UploadFile/AuthorImage/553bbc20200726035629.jpg" 
+                        HorizontalOptions="Center"/>
+        <Label Text="Expander View"
+               FontSize="16"
+               Padding="10"
+               FontAttributes="Bold"/>
+        
+        <xct:Expander >
+            <xct:Expander.Header>
+                <Grid Padding="10">
+                    <Label Text="Xamarin Community Toolkit - Views"
+                   FontSize="16" />
+                    <Image Source="expand.png"
+                           WidthRequest="16"
+                           HorizontalOptions="End"
+                           VerticalOptions="Center">
+                        <Image.Triggers>
+                            <DataTrigger TargetType="Image"
+                                 Binding="{Binding Source={RelativeSource AncestorType={x:Type xct:Expander}}, Path=IsExpanded}"
+                                 Value="True">
+                                <Setter Property="Rotation"
+                                Value="180" />
+                            </DataTrigger>
+                        </Image.Triggers>
+                    </Image>
+                </Grid>
+            </xct:Expander.Header>
+            <xct:Expander.ContentTemplate>
+                <DataTemplate>
+                    <Grid Padding="10"
+                          HorizontalOptions="FillAndExpand"
+                          VerticalOptions="FillAndExpand">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Image Source="https://tinyurl.com/4pp4mn7e"
+                               HeightRequest="45"
+                               Aspect="Fill"/>
+                        <Label Grid.Column="1"
+                               VerticalOptions="FillAndExpand"
+                               Text="The Xamarin Community Toolkit is a collection of reusable elements for mobile development with Xamarin.Forms, including animations, behaviors, converters, effects, and helpers. It simplifies and demonstrates common developer tasks when building iOS, Android, macOS, WPF and Universal Windows Platform (UWP) apps using Xamarin.Forms."
+                       FontAttributes="Italic" />
+                    </Grid>
+                </DataTemplate>
+            </xct:Expander.ContentTemplate>
+        </xct:Expander>
+        
+        <Label Text="Uniform Grid"
+               FontSize="16"
+               Padding="10"
+               FontAttributes="Bold"/>
+        
+        <xct:UniformGrid>
+            <BoxView Color="Red" />
+            <BoxView Color="Yellow" />
+            <BoxView Color="Orange" />
+            <BoxView Color="Purple" />
+            <BoxView Color="Blue" />
+            <BoxView Color="Green" />
+            <BoxView Color="LightGreen" />
+            <BoxView Color="Gray" />
+            <BoxView Color="Pink" />
+        </xct:UniformGrid>
+    </StackLayout>
+
+</ContentPage>
