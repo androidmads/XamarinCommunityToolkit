@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             x:Class="XamarinCommunityToolkit.SideMenuPage">
+    <xct:SideMenuView x:Name="SideMenu">
+        <!--MainView-->
+        <AbsoluteLayout BackgroundColor="White">
+
+            <StackLayout AbsoluteLayout.LayoutFlags="All"
+                AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Center">
+
+                <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
+                    <Label Text="Master Detail Page using XCT" 
+                           HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
+                </Frame>
+
+                <Label Text="&lt;-- Swipe Left or Right --&gt;"
+                       TextColor="Black"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Center"
+                       FontSize="20"/>
+
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal"
+                         Padding="15, 10"
+                         AbsoluteLayout.LayoutFlags="WidthProportional"
+                         AbsoluteLayout.LayoutBounds="0, 0, 1, -1">
+                <Button Text="|||"
+                        TextColor="White"
+                        BackgroundColor="#2196F3"
+                        WidthRequest="40"
+                        FontSize="20"
+                        VerticalOptions="Center"
+                        Clicked="OnLeftButtonClicked"/>
+                <Button Text="|||"
+                        BackgroundColor="#2196F3"
+                        TextColor="White"
+                        WidthRequest="40"
+                        VerticalOptions="Center"
+                        FontSize="20"
+                        HorizontalOptions="EndAndExpand"
+                        Clicked="OnRightButtonClicked" />
+            </StackLayout>
+        </AbsoluteLayout>
+
+        <!--LeftMenu-->
+        <ScrollView xct:SideMenuView.Position="LeftMenu"
+                    xct:SideMenuView.MenuWidthPercentage="0.5"
+                    BackgroundColor="Orange">
+            <StackLayout HeightRequest="2000">
+                <Button Text="TO RIGHT" FontSize="25" Clicked="OnRightButtonClicked" />
+            </StackLayout>
+        </ScrollView>
+
+        <!--RightMenu-->
+        <ScrollView xct:SideMenuView.Position="RightMenu"
+                    xct:SideMenuView.MenuWidthPercentage="0.35"
+                    BackgroundColor="Gold">
+            <StackLayout HeightRequest="2000">
+                <Button Text="TO LEFT" FontSize="25" Clicked="OnLeftButtonClicked" />
+            </StackLayout>
+        </ScrollView>
+
+    </xct:SideMenuView>
+</ContentPage>

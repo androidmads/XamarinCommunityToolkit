@@ -10,7 +10,11 @@ namespace XamarinCommunityToolkit
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            // XCT Series Sample 1: Xamarin Community Toolkit - Featured Views
+            //MainPage = new MainPage();
+
+            // XCT Series Sample 2: Master Details Page using XCT
+            MainPage = new SideMenuPage();
         }
 
         protected override void OnStart()
