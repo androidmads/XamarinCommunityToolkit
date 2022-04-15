@@ -4,5 +4,7 @@
              x:Class="XamarinCommunityToolkit.App">
     <Application.Resources>
 
+        <Color x:Key="StatusBarColor">Firebrick</Color>
+
     </Application.Resources>
 </Application>

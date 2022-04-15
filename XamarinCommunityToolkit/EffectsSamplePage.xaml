@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             x:Class="XamarinCommunityToolkit.EffectsSamplePage"
+             xct:StatusBarEffect.Color="{DynamicResource StatusBarColor}">
+    <ContentPage.Content>
+        <StackLayout xct:SafeAreaEffect.SafeArea="True"
+                     BackgroundColor="White">
+
+            <Frame BackgroundColor="#2196F3" 
+                   Padding="24" 
+                   CornerRadius="0">
+                <Label Text="Xamarin Forms Effects using XCT" 
+                       HorizontalTextAlignment="Center" 
+                       TextColor="White" 
+                       FontSize="36"/>
+            </Frame>
+            
+            <Image
+                x:Name="img"
+                HeightRequest="150"
+                Margin="10"
+                xct:ShadowEffect.Color="Green" 
+                xct:ShadowEffect.OffsetY="15"
+                Source="https://shorturl.at/qsvJ1">
+                <Image.Effects>
+                    <xct:LifecycleEffect Loaded="LifeCycleEffect_Loaded" Unloaded="LifeCycleEffect_Unloaded" />
+                </Image.Effects>
+            </Image>
+            <Grid Padding="10">
+                <Button Clicked="ButtonClicked" Text="Red" TextColor="Red" BorderColor="Red" BorderWidth="2" Grid.Column="0"/>
+                <Button Clicked="ButtonClicked" Text="Green" TextColor="Green" BorderColor="Green" BorderWidth="2" Grid.Column="1"/>
+                <Button Clicked="ButtonClicked" Text="Blue" TextColor="Blue" BorderColor="Blue" BorderWidth="2" Grid.Column="2"/>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
