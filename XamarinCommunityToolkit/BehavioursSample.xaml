@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XamarinCommunityToolkit.BehavioursSample">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Entry" x:Key="InvalidEntryStyle">
+                <Setter Property="TextColor" Value="Red"/>
+            </Style>
+            <Style TargetType="Entry" x:Key="ValidEntryStyle">
+                <Setter Property="TextColor" Value="Green"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout Padding="20"
+                     VerticalOptions="Center">
+
+            <Label Text="Register Here..!"
+                   TextColor="Orange"
+                   FontSize="Title"
+                   HorizontalOptions="Center"
+                   Margin="0,0,0,10"/>
+
+            <Entry xct:SetFocusOnEntryCompletedBehavior.NextElement="{x:Reference ent_email}"
+                   x:Name="ent_name"
+                   Placeholder="Username"/>
+            <Entry xct:SetFocusOnEntryCompletedBehavior.NextElement="{x:Reference ent_phone}"
+                   x:Name="ent_email"
+                   Placeholder="Email">
+                <Entry.Behaviors>
+                    <xct:EmailValidationBehavior
+                        InvalidStyle="{StaticResource InvalidEntryStyle}"
+                        ValidStyle="{StaticResource ValidEntryStyle}"
+                        DecorationFlags="Trim"/>
+                </Entry.Behaviors>
+            </Entry>
+            <Entry x:Name="ent_phone"
+                   Placeholder="Mobile Number"
+                   xct:SetFocusOnEntryCompletedBehavior.NextElement="{x:Reference ent_age}">
+                <Entry.Behaviors>
+                    <xct:MaskedBehavior 
+                        Mask="+AA-AAAAA-AAAAA" 
+                        UnMaskedCharacter="A"/>
+                </Entry.Behaviors>
+            </Entry>
+            <Entry x:Name="ent_age"
+                   Placeholder="Age"
+                   MaxLength="2"
+                   Keyboard="Numeric"
+                   xct:SetFocusOnEntryCompletedBehavior.NextElement="{x:Reference btn_submit}">
+                <Entry.Behaviors>
+                    <xct:NumericValidationBehavior 
+                        MaximumValue="35"
+                        InvalidStyle="{StaticResource InvalidEntryStyle}"/>
+                    <xct:MaxLengthReachedBehavior 
+                        MaxLengthReached="MaxLengthReachedBehavior_MaxLengthReached"
+                        ShouldDismissKeyboardAutomatically="True"/>
+                </Entry.Behaviors>
+            </Entry>
+            <Button Text="Submit"
+                    x:Name="btn_submit">
+                <Button.Behaviors>
+                    <xct:AnimationBehavior EventName="Clicked">
+                        <xct:AnimationBehavior.AnimationType>
+                            <xct:FadeAnimation
+                    Easing="{x:Static Easing.SinInOut}"
+                    Duration="1000"
+                />
+                        </xct:AnimationBehavior.AnimationType>
+                    </xct:AnimationBehavior>
+                </Button.Behaviors>
+            </Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
