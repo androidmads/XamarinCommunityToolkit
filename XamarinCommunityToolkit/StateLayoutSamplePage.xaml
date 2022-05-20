@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             x:Class="XamarinCommunityToolkit.StateLayoutSamplePage"
+             xmlns:pg="clr-namespace:XamarinCommunityToolkit"
+             ios:Page.UseSafeArea="true">
+    <ContentPage.BindingContext>
+        <pg:StateLayoutSamplePageModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <xct:StateToBooleanConverter x:Key="StateToBooleanConverter" />
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid xct:StateLayout.CurrentState="{Binding MainState}" xct:StateLayout.AnimateStateChanges="true">
+            <xct:StateLayout.StateViews>
+                <xct:StateView StateKey="Loading" BackgroundColor="White" VerticalOptions="FillAndExpand">
+                    <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+                        <ActivityIndicator Color="#1abc9c" 
+                                           IsRunning="{Binding MainState, Converter={StaticResource StateToBooleanConverter}, ConverterParameter={x:Static xct:LayoutState.Loading}}" />
+                        <Label Text="Loading..." HorizontalOptions="Center" />
+                    </StackLayout>
+                </xct:StateView>
+            </xct:StateLayout.StateViews>
+            <Button Command="{Binding FullscreenLoadingCommand}" 
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+                    Text="Show Fullscreen Loader" 
+                    Margin="0,0,0,16" />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -20,7 +20,10 @@ namespace XamarinCommunityToolkit
             //MainPage = new EffectsSamplePage();
 
             // XCT Series Sample 4: Behaviours using XCT
-            MainPage = new BehavioursSample();
+            //MainPage = new BehavioursSample();
+
+            // XCT Series Sample 5: State Layout using XCT
+            MainPage = new StateLayoutSamplePage();
         }
 
         protected override void OnStart()
