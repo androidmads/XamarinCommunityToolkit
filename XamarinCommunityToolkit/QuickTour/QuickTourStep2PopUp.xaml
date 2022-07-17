@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<local:BaseQuickTourPage
+    xmlns:local="clr-namespace:XamarinCommunityToolkit"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="XamarinCommunityToolkit.QuickTourStep2PopUp" >
+    <local:BaseQuickTourPage.BodyContent>
+        <ContentView>
+            <StackLayout VerticalOptions="Center"
+                         HorizontalOptions="Center">
+                <Label Text="Step 2"
+                       FontAttributes="Bold"
+                       Padding="15,0"/>
+            </StackLayout>
+        </ContentView>
+    </local:BaseQuickTourPage.BodyContent>
+</local:BaseQuickTourPage>
